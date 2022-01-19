@@ -1,24 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LaB1_shivamSaini_C0834485" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board" translatesAutoresizingMaskIntoConstraints="NO" id="5WI-sY-0Qi">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="F7z-XI-h7O"/>
+                                    <constraint firstAttribute="width" constant="300" id="s7q-wl-rze"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="6VU-UX-qin">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-9c-g1e">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="112"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPJ-GU-bBj">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="112"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJ8-AK-cYS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9a-kx-ghE">
+                                                <rect key="frame" x="112" y="0.0" width="76" height="112"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GZj-j6-P4b"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2X-M3-OsW">
+                                                <rect key="frame" x="224" y="0.0" width="76" height="112"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RUg-qo-lib"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="C9a-kx-ghE" firstAttribute="baseline" secondItem="M2X-M3-OsW" secondAttribute="baseline" id="0Ap-5W-th5"/>
+                                            <constraint firstItem="M2X-M3-OsW" firstAttribute="baseline" secondItem="dPJ-GU-bBj" secondAttribute="baseline" id="KXU-dj-gim"/>
+                                            <constraint firstItem="C9a-kx-ghE" firstAttribute="firstBaseline" secondItem="dPJ-GU-bBj" secondAttribute="firstBaseline" id="MLI-2N-8qn"/>
+                                            <constraint firstItem="C9a-kx-ghE" firstAttribute="baseline" secondItem="dPJ-GU-bBj" secondAttribute="baseline" id="TCg-kL-S4g"/>
+                                            <constraint firstItem="dPJ-GU-bBj" firstAttribute="firstBaseline" secondItem="M2X-M3-OsW" secondAttribute="firstBaseline" id="VqT-lV-qYg"/>
+                                            <constraint firstItem="M2X-M3-OsW" firstAttribute="firstBaseline" secondItem="C9a-kx-ghE" secondAttribute="firstBaseline" id="nnU-Qm-MND"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-Im-Veg">
+                                        <rect key="frame" x="0.0" y="134" width="300" height="72"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9Y-1i-leR">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mIx-vl-R4y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwy-pc-Z7e">
+                                                <rect key="frame" x="112" y="0.0" width="76" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ymh-hu-ePr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="251-Hd-wcz">
+                                                <rect key="frame" x="224" y="0.0" width="76" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="54d-QC-pqY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="251-Hd-wcz" firstAttribute="baseline" secondItem="zwy-pc-Z7e" secondAttribute="baseline" id="1g1-or-dTi"/>
+                                            <constraint firstItem="m9Y-1i-leR" firstAttribute="baseline" secondItem="zwy-pc-Z7e" secondAttribute="baseline" id="7NV-RP-MHo"/>
+                                            <constraint firstItem="m9Y-1i-leR" firstAttribute="firstBaseline" secondItem="251-Hd-wcz" secondAttribute="firstBaseline" id="98F-Lv-64m"/>
+                                            <constraint firstItem="zwy-pc-Z7e" firstAttribute="firstBaseline" secondItem="m9Y-1i-leR" secondAttribute="firstBaseline" id="JJs-1x-xrJ"/>
+                                            <constraint firstItem="zwy-pc-Z7e" firstAttribute="firstBaseline" secondItem="251-Hd-wcz" secondAttribute="firstBaseline" id="RxK-d3-j8q"/>
+                                            <constraint firstItem="251-Hd-wcz" firstAttribute="baseline" secondItem="m9Y-1i-leR" secondAttribute="baseline" id="qcN-Od-gZ0"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="nRb-Hq-lbc">
+                                        <rect key="frame" x="0.0" y="228" width="300" height="72"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQg-OQ-PhR">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wpm-xt-m6C"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3is-bg-7KI">
+                                                <rect key="frame" x="112" y="0.0" width="76" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9y-mx-wAc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGQ-tz-hte">
+                                                <rect key="frame" x="224" y="0.0" width="76" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="buttonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9BV-sO-nOL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RGQ-tz-hte" firstAttribute="firstBaseline" secondItem="cQg-OQ-PhR" secondAttribute="firstBaseline" id="2Hi-aN-jAd"/>
+                                            <constraint firstItem="cQg-OQ-PhR" firstAttribute="firstBaseline" secondItem="3is-bg-7KI" secondAttribute="firstBaseline" id="9Oq-AF-8rh"/>
+                                            <constraint firstItem="3is-bg-7KI" firstAttribute="firstBaseline" secondItem="RGQ-tz-hte" secondAttribute="firstBaseline" id="bay-yA-Ukd"/>
+                                            <constraint firstItem="3is-bg-7KI" firstAttribute="baseline" secondItem="cQg-OQ-PhR" secondAttribute="baseline" id="ltr-pm-gol"/>
+                                            <constraint firstItem="3is-bg-7KI" firstAttribute="baseline" secondItem="RGQ-tz-hte" secondAttribute="baseline" id="vnT-NR-hjJ"/>
+                                            <constraint firstItem="cQg-OQ-PhR" firstAttribute="baseline" secondItem="RGQ-tz-hte" secondAttribute="baseline" id="yFq-DG-6Wx"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2pf-C6-zSm"/>
+                                    <constraint firstItem="hgD-Im-Veg" firstAttribute="top" secondItem="6VU-UX-qin" secondAttribute="top" constant="134" id="RnR-aJ-Gw7"/>
+                                    <constraint firstAttribute="height" constant="300" id="wOf-cE-lTp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstItem="6VU-UX-qin" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4sd-64-0lB"/>
+                            <constraint firstItem="5WI-sY-0Qi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9h9-LW-fQT"/>
+                            <constraint firstItem="5WI-sY-0Qi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Txm-r5-ANc"/>
+                            <constraint firstItem="6VU-UX-qin" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VHl-4X-jme"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="buttons" destination="dPJ-GU-bBj" collectionClass="NSMutableArray" id="xAl-SH-3ot"/>
+                        <outletCollection property="buttons" destination="C9a-kx-ghE" collectionClass="NSMutableArray" id="EnT-3V-WIf"/>
+                        <outletCollection property="buttons" destination="M2X-M3-OsW" collectionClass="NSMutableArray" id="Ewk-mJ-5Kx"/>
+                        <outletCollection property="buttons" destination="m9Y-1i-leR" collectionClass="NSMutableArray" id="w1S-wq-Xws"/>
+                        <outletCollection property="buttons" destination="zwy-pc-Z7e" collectionClass="NSMutableArray" id="325-o9-S0c"/>
+                        <outletCollection property="buttons" destination="251-Hd-wcz" collectionClass="NSMutableArray" id="oYK-Uj-flb"/>
+                        <outletCollection property="buttons" destination="cQg-OQ-PhR" collectionClass="NSMutableArray" id="1hI-RY-f9b"/>
+                        <outletCollection property="buttons" destination="3is-bg-7KI" collectionClass="NSMutableArray" id="9Ho-oO-ehS"/>
+                        <outletCollection property="buttons" destination="RGQ-tz-hte" collectionClass="NSMutableArray" id="906-ah-boY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="84.375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="board" width="653" height="653"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
