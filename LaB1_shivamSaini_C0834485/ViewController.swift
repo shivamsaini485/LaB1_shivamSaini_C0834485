@@ -6,16 +6,27 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
     @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var crossScoreLabel: UILabel!
+    @IBOutlet weak var noughtScoreLabel: UILabel!
+    
     var board = [String]()
     var activePlayer = ""
     
     var tapCalled: UIButton!
     
+    var crossScore:Int = 0
+    var noughtScore:Int = 0
+    
+    var savedScore: ScoreBoard!
+    
     var rules = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +35,27 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(swipeUp)
         
         loadBoard()
+        loadScore()
         becomeFirstResponder()
+    }
+    
+    func loadScore(){
+        let request: NSFetchRequest<ScoreBoard> = ScoreBoard.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        do {
+            let score = try context.fetch(request)
+            if score.count > 0 {
+                savedScore = score.first
+                crossScore = Int(savedScore.crossScore!) ?? 0
+                crossScoreLabel.text = String(crossScore)
+                noughtScore = Int(savedScore.noughtScore!) ?? 0
+                noughtScoreLabel.text = String(noughtScore)
+                
+            }
+        } catch {
+            print("Error loading \(error.localizedDescription)")
+        }
+        
     }
     
     override var canBecomeFirstResponder: Bool{
@@ -84,6 +115,24 @@ class ViewController: UIViewController {
             let player3 = board[rule[2]]
             
             if player1 == player2, player2  == player3,!player1.isEmpty {
+                if activePlayer == "X" {
+                    crossScore += 1
+                    crossScoreLabel.text = String(crossScore)
+                } else {
+                    noughtScore += 1
+                    noughtScoreLabel.text = String(noughtScore)
+                }
+                
+                if savedScore == nil {
+                    savedScore = ScoreBoard(context: context)
+                }
+                savedScore.noughtScore = String(noughtScore)
+                savedScore.crossScore = String(crossScore)
+                do {
+                    try context.save()
+                } catch {
+                    print("Error \(error.localizedDescription)")
+                }
                 print("winner is \(player2)")
                 showAlert(msg: "WoW \(player3) you've won ")
                 return
