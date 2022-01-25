@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     var board = [String]()
     var activePlayer = ""
     
+    var tapCalled: UIButton!
+    
     var rules = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
     
     override func viewDidLoad() {
@@ -22,27 +24,53 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(swipeUp)
         
         loadBoard()
-        print(board)
+        becomeFirstResponder()
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        
+        //SHAKE MOTION BEGAN
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        
+        //SHAKE MOTION ENDED
+        
+        if(motion == .motionShake && activePlayer == "X"){
+            tapCalled.setTitle(nil, for: .normal)
+            tapCalled.isEnabled = true
+            activePlayer = "O"
+        }
+        else if(motion == .motionShake && activePlayer == "O"){
+            tapCalled.setTitle(nil, for: .normal)
+            tapCalled.isEnabled = true
+            activePlayer = "X"
+        }
         
     }
+    
     @objc func swipeGesture(){
         reset()
     }
+    
+    
     @IBAction func buttonTouched(_ sender: UIButton) {
         let index = buttons.index(of: sender)!
         
         
-        if !board[index].isEmpty {
-            return
-        }
-        
         
         if activePlayer == "X"{
+            tapCalled = sender
             sender.setTitle("O", for: .normal)
             activePlayer = "O"
             //to freeze it so not able to make move again
             board[index] = "X"
         }else{
+            tapCalled = sender
             sender.setTitle("X", for: .normal)
             activePlayer = "X"
             board[index] = "O"
